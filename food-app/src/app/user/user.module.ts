@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
+import { UsersServiceService } from './users-service.service';
 
 
 
@@ -14,6 +15,9 @@ import { RegisterComponent } from './register/register.component';
   imports: [
     CommonModule,
     FormsModule
+  ],
+  providers: [
+    UsersServiceService
   ],
   exports: [
     LoginComponent,
