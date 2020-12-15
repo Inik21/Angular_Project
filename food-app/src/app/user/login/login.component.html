@@ -3,8 +3,14 @@
         <div class="col-6">
             <div class="mb-3">
                 <label for="Email" class="form-label">Email address</label>
-                <input type="email" name="email" class="form-control" id="Email" aria-describedby="emailHelp" ngModel
+                <input #emailInput="ngModel" type="email" name="email" class="form-control" id="Email" aria-describedby="emailHelp" ngModel
                     required email>
+                <div *ngIf="emailInput.touched && emailInput.errors?.required" class="text-danger">
+                    Email is required!
+                </div>
+                <div *ngIf="emailInput.touched && emailInput.errors?.email" class="text-danger">
+                    Email is invalid!
+                </div>
                 <!-- <div id="emailHelp" class="form-text">Your password must be 8-20 characters long, contain letters and
                     numbers,
                     and must not contain spaces, special characters, or emoji.
@@ -12,7 +18,10 @@
             </div>
             <div class="mb-3">
                 <label for="Password" class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" id="Password" ngModel required>
+                <input #passwordInput="ngModel" type="password" name="password" class="form-control" id="Password" ngModel required>
+                <div *ngIf="passwordInput.touched && passwordInput.errors?.required" class="text-danger">
+                    Password is required!
+                </div>
             </div>
             <div class="row justify-content-center">
                 <button class="btn btn-dark mx-auto">Login</button>

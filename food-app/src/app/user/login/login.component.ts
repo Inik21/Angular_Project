@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   }
 
   loginHandler (data: any) {
-
+    console.log(data);
   }
 
 }
