@@ -16,7 +16,9 @@ export class RecipeService {
 
   constructor(public http: HttpClient, public userService:UsersServiceService) { }
 
-
+  getAllRecipes() {
+    return this.http.get(`${this.apiUrl}/data/Recipes`);
+  }
 
   addRecipe(data: IRecipeData): Observable<any> {
     this.serverData = JSON.stringify(data);

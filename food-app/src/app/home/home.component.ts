@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RecipeService } from '../recipe/recipe.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  recipes = null;
+  
+  constructor(public recipeService: RecipeService) { }
 
   ngOnInit(): void {
+    this.recipeService.getAllRecipes().subscribe(recipes => this.recipes=recipes)
   }
 
 }

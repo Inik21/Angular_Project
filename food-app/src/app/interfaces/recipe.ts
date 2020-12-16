@@ -5,4 +5,6 @@ export interface IRecipeData {
     prepTime: number;
     cookTime: number;
     type: string;
+    description: string;
+    image: string;
 }
