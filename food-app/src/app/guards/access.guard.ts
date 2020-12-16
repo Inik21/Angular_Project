@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { UsersServiceService } from '../user/users-service.service';
 
@@ -8,7 +8,7 @@ import { UsersServiceService } from '../user/users-service.service';
 })
 export class AccessGuard implements CanActivate {
 
-  constructor(public userService: UsersServiceService) {
+  constructor(public userService: UsersServiceService, private router: Router) {
 
   }
 
@@ -24,6 +24,7 @@ export class AccessGuard implements CanActivate {
     if (isUserLogged === shouldUserBeLogged) {
       return true;
     }
+    this.router.navigate([''])
     return false;
   }
 

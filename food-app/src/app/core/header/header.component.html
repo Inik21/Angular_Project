@@ -30,6 +30,9 @@
                     <a class="nav-link">Hello, {{user.email}}</a>
                 </li>
                 <li *ngIf="user" class="nav-item ">
+                    <a class="nav-link" routerLink="/recipe/add">Add recipe</a>
+                </li>
+                <li *ngIf="user" class="nav-item ">
                     <a (click)="logoutHandler()" class="nav-link">Logout</a>
                 </li>
             </ul>

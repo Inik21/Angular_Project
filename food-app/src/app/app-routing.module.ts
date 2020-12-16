@@ -2,6 +2,7 @@ import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AccessGuard } from './guards/access.guard';
 import { HomeComponent } from './home/home.component';
+import { AddComponent } from './recipe/add/add.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 
@@ -34,6 +35,14 @@ const routes: Routes = [
       shouldLogged: false
     },
     component: RegisterComponent
+  },
+  {
+    path: 'recipe/add',
+    canActivate: [AccessGuard],
+    data: {
+      shouldLogged: true
+    },
+    component: AddComponent
   }
 ];
 
