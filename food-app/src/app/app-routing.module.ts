@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AccessGuard } from './guards/access.guard';
 import { HomeComponent } from './home/home.component';
 import { AddComponent } from './recipe/add/add.component';
+import { DetailsComponent } from './recipe/details/details.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 
@@ -43,6 +44,14 @@ const routes: Routes = [
       shouldLogged: true
     },
     component: AddComponent
+  },
+  {
+    path: 'recipe/details/:id',
+    canActivate: [AccessGuard],
+    data: {
+      shouldLogged: true
+    },
+    component: DetailsComponent
   }
 ];
 

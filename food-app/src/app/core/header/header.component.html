@@ -27,7 +27,7 @@
                     <a routerLink="/user/register" class="nav-link">Register</a>
                 </li>
                 <li *ngIf="user" class="nav-item ">
-                    <a class="nav-link">Hello, {{user.email}}</a>
+                    <a class="nav-link">Hello, {{user.firstName}} {{user.lastName}}</a>
                 </li>
                 <li *ngIf="user" class="nav-item ">
                     <a class="nav-link" routerLink="/recipe/add">Add recipe</a>

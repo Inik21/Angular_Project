@@ -9,7 +9,7 @@
                     <h5 class="card-title">{{recipe.title}}</h5>
                     <p class="card-text">{{recipe.description.length > 100 ? recipe.description.substring(0, 100) +
                         '...': recipe.description}}</p>
-                    <button routerLink="recipe/{{recipe.objectId}}" type="button" class="btn btn-outline-info">See recipe</button>
+                    <button routerLink="/recipe/details/{{recipe.objectId}}" type="button" class="btn btn-outline-info">See recipe</button>
                     <p class="card-text"><small class="text-muted">Created: {{recipe.created | date:'short'}}</small>
                     </p>
                 </div>
