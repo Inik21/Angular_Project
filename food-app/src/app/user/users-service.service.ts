@@ -5,11 +5,16 @@ import { environment } from 'src/environments/environment';
 import { IRegisterData } from '../interfaces/register';
 import {tap} from 'rxjs/operators'
 import { ILoginData } from '../interfaces/login';
+import { tokenize } from '@angular/compiler/src/ml_parser/lexer';
 
 @Injectable()
 export class UsersServiceService {
 
   user;
+
+  get userToken() {
+    return this.user["user-token"];
+  }
 
   apiUrl = environment.apiURL;
 

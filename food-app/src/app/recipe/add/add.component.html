@@ -1,4 +1,5 @@
 <form #f="ngForm" (ngSubmit)="addRecipeHandler(f.value)">
+    {{f.value | json}}
     <div class="row justify-content-center">
         <div class="col-6">
             <label for="Title" class="form-label">Title</label>
@@ -23,20 +24,31 @@
                 </div>
             </div>
             <div class="row">
-                <div class="mb-3 col-6">
+                <div class="mb-3 col-4">
                     <label for="PrepTime" class="form-label">Preparation time</label>
-                    <input #prepTime="ngModel" placeholder="Time in minutes" type="text" name="prepTime" class="form-control" id="PrepTime"
+                    <input #prepTime="ngModel" placeholder="Time in minutes" type="number" name="prepTime" class="form-control" id="PrepTime"
                         ngModel required>
                     <div *ngIf="prepTime.touched && prepTime.errors?.required" class="text-danger">
                         You have to put the time!
                     </div>
                 </div>
-                <div class="mb-3 col-6">
+                <div class="mb-3 col-4">
                     <label for="CookTime" class="form-label">Cooking time</label>
-                    <input #cookTime="ngModel" placeholder="Time in minutes" type="text" name="cookTime" class="form-control" id="CookTime"
+                    <input #cookTime="ngModel" placeholder="Time in minutes" type="number" name="cookTime" class="form-control" id="CookTime"
                         ngModel required>
                     <div *ngIf="cookTime.touched && cookTime.errors?.required" class="text-danger">
                         You have to put the time!
+                    </div>
+                </div>
+                <div class="mb-3 col-4">
+                    <select #typeInput class="form-select" name="type" ngModel>
+                        <option selected>Select type</option>
+                        <option value="Breakfast">Breakfast</option>
+                        <option value="Lunch">Lunch</option>
+                        <option value="Dinner">Dinner</option>
+                      </select>
+                      <div *ngIf="typeInput.value==='Select type'" class="text-danger">
+                        You have to select a type!
                     </div>
                 </div>
             </div>

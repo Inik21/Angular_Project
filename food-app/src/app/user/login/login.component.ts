@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   
   loginHandler(data: ILoginData) {
     this.userService.login(data).subscribe(
-      () => { this.router.navigate(['']) },
+      (user) => { this.router.navigate(['']);console.log(user) },
       err => { console.log(err) }
     )
   }

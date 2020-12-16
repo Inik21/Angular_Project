@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { IRecipeData } from 'src/app/interfaces/recipe';
+import { RecipeService } from '../recipe.service';
 
 @Component({
   selector: 'app-add',
@@ -7,13 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddComponent implements OnInit {
 
-  constructor() { }
+  constructor(public recipeService: RecipeService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  addRecipeHandler(data) {
-    
+  addRecipeHandler(data: IRecipeData) {
+    this.recipeService.addRecipe(data).subscribe(
+      () => this.router.navigate(['']),
+      err => console.log(err)
+    )
   }
 
 }
