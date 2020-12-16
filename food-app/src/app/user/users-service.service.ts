@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IRegisterData } from '../interfaces/register';
 import {tap} from 'rxjs/operators'
+import { ILoginData } from '../interfaces/login';
 
 @Injectable({
   providedIn: 'root'
@@ -16,10 +17,12 @@ export class UsersServiceService {
 
   constructor(private http: HttpClient) { }
   
+  login(data:ILoginData) {
+
+  }
+
   register(data: IRegisterData): Observable<any> {
-    return this.http.post(this.apiUrl + '/users/register',data).pipe(
-      tap(user => this.user=user)
-    );
+    return this.http.post(this.apiUrl + '/users/register',data);
   }
 
 }
