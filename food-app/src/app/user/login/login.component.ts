@@ -14,9 +14,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  serverData;
-
+  
   loginHandler(data: ILoginData) {
     this.userService.login(data).subscribe(
       () => this.router.navigate(['']), 

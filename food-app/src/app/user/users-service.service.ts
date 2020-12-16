@@ -6,17 +6,15 @@ import { IRegisterData } from '../interfaces/register';
 import {tap} from 'rxjs/operators'
 import { ILoginData } from '../interfaces/login';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class UsersServiceService {
 
-  user = null;
+  user;
 
   apiUrl = environment.apiURL;
 
   constructor(private http: HttpClient) { }
-  
+
   login(data:ILoginData): Observable<any> {
     return this.http.post(this.apiUrl + '/users/login', data).pipe(
       tap(user => this.user = user)
