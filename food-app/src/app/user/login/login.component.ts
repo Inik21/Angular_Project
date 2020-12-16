@@ -14,10 +14,10 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+
   loginHandler(data: ILoginData) {
     this.userService.login(data).subscribe(
-      (user) => { this.router.navigate(['']);console.log(user) },
+      (user) => { this.router.navigate(['']) },
       err => { console.log(err) }
     )
   }
