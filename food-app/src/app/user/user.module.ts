@@ -4,7 +4,8 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { UsersServiceService } from './users-service.service';
-
+import { HttpClientModule } from '@angular/common/http'
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { UsersServiceService } from './users-service.service';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     UsersServiceService

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { IRegisterData } from 'src/app/interfaces/register';
+import { UsersServiceService } from '../users-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -7,13 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(public userService: UsersServiceService, public router: Router) { }
 
   ngOnInit(): void {
   }
 
-  registerHandler() {
-    
-  }
 
+  registerHandler(data: IRegisterData) {
+
+    this.userService.register(data).subscribe(
+      () => { this.router.navigate(['user/login']) },
+      err => { console.log(err) }
+    );
+  }
 }
