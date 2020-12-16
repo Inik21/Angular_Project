@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { AddComponent } from './recipe/add/add.component';
 import { DetailsComponent } from './recipe/details/details.component';
 import { LoginComponent } from './user/login/login.component';
+import { MyRecipesComponent } from './user/my-recipes/my-recipes.component';
 import { RegisterComponent } from './user/register/register.component';
 
 const routes: Routes = [
@@ -36,6 +37,14 @@ const routes: Routes = [
       shouldLogged: false
     },
     component: RegisterComponent
+  },
+  {
+    path: 'user/myRecipes/:id',
+    canActivate: [AccessGuard],
+    data: {
+      shouldLogged: true
+    },
+    component: MyRecipesComponent
   },
   {
     path: 'recipe/add',
