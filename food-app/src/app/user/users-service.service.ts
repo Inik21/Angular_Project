@@ -27,4 +27,8 @@ export class UsersServiceService {
     return this.http.post(this.apiUrl + '/users/register',data);
   }
 
+  logout(): Observable<any> {
+    return this.http.get(this.apiUrl + '/users/logout');
+  }
+
 }
