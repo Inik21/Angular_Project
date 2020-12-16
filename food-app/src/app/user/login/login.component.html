@@ -3,7 +3,7 @@
         <div class="col-6">
             <div class="mb-3">
                 <label for="Email" class="form-label">Email address</label>
-                <input #emailInput="ngModel" type="email" name="email" class="form-control" id="Email" aria-describedby="emailHelp" ngModel
+                <input #emailInput="ngModel" type="email" name="login" class="form-control" id="Email" aria-describedby="emailHelp" ngModel
                     required email>
                 <div *ngIf="emailInput.touched && emailInput.errors?.required" class="text-danger">
                     Email is required!

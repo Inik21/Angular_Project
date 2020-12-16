@@ -17,8 +17,10 @@ export class UsersServiceService {
 
   constructor(private http: HttpClient) { }
   
-  login(data:ILoginData) {
-
+  login(data:ILoginData): Observable<any> {
+    return this.http.post(this.apiUrl + '/users/login', data).pipe(
+      tap(user => this.user = user)
+    )
   }
 
   register(data: IRegisterData): Observable<any> {
