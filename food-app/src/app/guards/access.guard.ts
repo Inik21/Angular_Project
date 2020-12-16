@@ -18,6 +18,9 @@ export class AccessGuard implements CanActivate {
     }
     const isUserLogged = !!this.userService.user;
     const shouldUserBeLogged = !!route.data.shouldLogged;
+    if(route.routeConfig.path === 'home'){
+      return true;
+    }
     if (isUserLogged === shouldUserBeLogged) {
       return true;
     }
