@@ -20,7 +20,7 @@ export class UsersServiceService {
   login(data:ILoginData): Observable<any> {
     return this.http.post(this.apiUrl + '/users/login', data).pipe(
       tap(user => this.user = user)
-    )
+    );
   }
 
   register(data: IRegisterData): Observable<any> {
@@ -28,7 +28,9 @@ export class UsersServiceService {
   }
 
   logout(): Observable<any> {
-    return this.http.get(this.apiUrl + '/users/logout');
+    return this.http.get(this.apiUrl + '/users/logout').pipe(
+      tap(this.user = null)
+    );
   }
 
 }
