@@ -1,1 +1,26 @@
-<p>my-recipes works!</p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col col-8">
+            <div *ngFor="let recipe of recipes" class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img [src]="recipe.image" class="img-fluid" alt="You haven't put a picture">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{recipe.title}}</h5>
+                            <p class="card-text">{{recipe.description.length > 100 ? recipe.description.substring(0,
+                                100) +
+                                '...': recipe.description}}</p>
+                            <button routerLink="/recipe/details/{{recipe.objectId}}" type="button"
+                                class="btn btn-outline-info">See recipe</button>
+                            <p class="card-text"><small class="text-muted">Created: {{recipe.created |
+                                    date:'short'}}</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

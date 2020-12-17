@@ -18,7 +18,8 @@ import { MyRecipesComponent } from './my-recipes/my-recipes.component';
   imports: [
     CommonModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   providers: [
     UsersServiceService
