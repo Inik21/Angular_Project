@@ -9,11 +9,15 @@ import { RecipeService } from '../recipe/recipe.service';
 export class HomeComponent implements OnInit {
 
   recipes = null;
+
+  updated;
   
   constructor(public recipeService: RecipeService) { }
 
   ngOnInit(): void {
-    this.recipeService.getAllRecipes().subscribe(recipes => this.recipes=recipes)
+    this.recipeService.getAllRecipes().subscribe(recipes => {
+      this.recipes=recipes;
+    });
   }
 
 }

@@ -16,6 +16,10 @@ export class RecipeService {
 
   constructor(public http: HttpClient, public userService: UsersServiceService) { }
 
+  deleteRecipe(id): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/data/Recipes/${id}`);
+  }
+
   editRecipe(data, id): Observable<any> {
     return this.http.put(`${this.apiUrl}/data/Recipes/${id}`,data,{ headers: new HttpHeaders({ 'user-token': `${this.userService.userToken}` }) })
   }
