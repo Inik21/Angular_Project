@@ -7,11 +7,12 @@ import { switchMap, tap } from 'rxjs/operators'
 import { ILoginData } from '../interfaces/login';
 import { tokenize } from '@angular/compiler/src/ml_parser/lexer';
 import { identifierModuleUrl } from '@angular/compiler';
+import { IUser } from '../interfaces/user';
 
 @Injectable()
 export class UsersServiceService {
 
-  user;
+  user: IUser | null = null;
 
   get userToken() {
     return this.user["user-token"];
