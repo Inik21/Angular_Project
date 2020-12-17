@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { MyRecipesComponent } from './my-recipes/my-recipes.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EditComponent } from './edit/edit.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { EditComponent } from './edit/edit.component';
     RegisterComponent,
     MyRecipesComponent,
     ProfileComponent,
-    EditComponent
+    EditComponent,
+    ChangePasswordComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +35,8 @@ import { EditComponent } from './edit/edit.component';
     RegisterComponent,
     MyRecipesComponent,
     ProfileComponent,
-    EditComponent
+    EditComponent,
+    ChangePasswordComponent
   ]
 })
 export class UserModule { }

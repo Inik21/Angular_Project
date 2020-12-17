@@ -3,9 +3,10 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IRegisterData } from '../interfaces/register';
-import {tap} from 'rxjs/operators'
+import { switchMap, tap } from 'rxjs/operators'
 import { ILoginData } from '../interfaces/login';
 import { tokenize } from '@angular/compiler/src/ml_parser/lexer';
+import { identifierModuleUrl } from '@angular/compiler';
 
 @Injectable()
 export class UsersServiceService {
@@ -20,8 +21,23 @@ export class UsersServiceService {
 
   constructor(private http: HttpClient) { }
 
-  editUser(data: any) {
-    return this.http.put(`${this.apiUrl}/data/Users/${this.user.objectId}`,data,{ headers: new HttpHeaders({ 'user-token': `${this.userToken}` }) }).pipe(
+  getUserFromEmail(email: string, data): Observable<any> {
+    return this.http.get(`${this.apiUrl}/data/Users?where=email%20%3D%20'${email}'`).pipe (
+      switchMap(user => this.changePassword(user[0].objectId,data))
+    );
+  }
+
+  changePassword(id: number, data: any): Observable<any> {
+    
+    return this.http.put(`${this.apiUrl}/data/Users/${id}`, data);
+  }
+
+  sentChangePasswordEmail(email: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/users/restorepassword/${email}`);
+  }
+
+  editUser(data: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/data/Users/${this.user.objectId}`, data, { headers: new HttpHeaders({ 'user-token': `${this.userToken}` }) }).pipe(
       tap((user) => {
         this.user.firstName = user["firstName"];
         this.user.lastName = user["lastName"];
@@ -30,14 +46,14 @@ export class UsersServiceService {
     );
   }
 
-  login(data:ILoginData): Observable<any> {
+  login(data: ILoginData): Observable<any> {
     return this.http.post(this.apiUrl + '/users/login', data).pipe(
       tap(user => this.user = user)
     );
   }
 
   register(data: IRegisterData): Observable<any> {
-    return this.http.post(this.apiUrl + '/users/register',data);
+    return this.http.post(this.apiUrl + '/users/register', data);
   }
 
   logout(): Observable<any> {

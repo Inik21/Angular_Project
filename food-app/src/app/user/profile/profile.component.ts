@@ -29,4 +29,11 @@ export class ProfileComponent implements OnInit {
     this.router.navigate(['/user/edit'])
   }
 
+  changePasswordEmailHandler() {
+    this.usersService.sentChangePasswordEmail(this.user.email).subscribe(
+      () => this.router.navigate(['']),
+      err => console.log(err)
+    );
+  }
+
 }
