@@ -7,6 +7,7 @@ import { DetailsComponent } from './recipe/details/details.component';
 import { EditComponent } from './recipe/edit/edit.component';
 import { LoginComponent } from './user/login/login.component';
 import { MyRecipesComponent } from './user/my-recipes/my-recipes.component';
+import { ProfileComponent } from './user/profile/profile.component';
 import { RegisterComponent } from './user/register/register.component';
 
 const routes: Routes = [
@@ -46,6 +47,14 @@ const routes: Routes = [
       shouldLogged: true
     },
     component: MyRecipesComponent
+  },
+  {
+    path: 'user/profile',
+    canActivate: [AccessGuard],
+    data: {
+      shouldLogged: true
+    },
+    component: ProfileComponent
   },
   {
     path: 'recipe/add',

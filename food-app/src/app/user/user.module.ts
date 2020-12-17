@@ -7,13 +7,15 @@ import { UsersServiceService } from './users-service.service';
 import { HttpClientModule } from '@angular/common/http'
 import { RouterModule } from '@angular/router';
 import { MyRecipesComponent } from './my-recipes/my-recipes.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
     RegisterComponent,
-    MyRecipesComponent
+    MyRecipesComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { MyRecipesComponent } from './my-recipes/my-recipes.component';
   exports: [
     LoginComponent,
     RegisterComponent,
-    MyRecipesComponent
+    MyRecipesComponent,
+    ProfileComponent
   ]
 })
 export class UserModule { }
