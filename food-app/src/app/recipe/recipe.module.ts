@@ -6,6 +6,7 @@ import { RecipeService } from './recipe.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DetailsComponent } from './details/details.component';
 import { EditComponent } from './edit/edit.component';
+import { RecipeRoutingModule } from './recipe-routing.module';
 
 
 
@@ -14,11 +15,11 @@ import { EditComponent } from './edit/edit.component';
   imports: [
     CommonModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RecipeRoutingModule
   ],
   providers: [
-    RecipeService,
-    
+    RecipeService
   ],
   exports: [
     AddComponent,

@@ -1,4 +1,3 @@
-import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AccessGuard } from './guards/access.guard';
 import { HomeComponent } from './home/home.component';
@@ -25,78 +24,6 @@ const routes: Routes = [
       shouldLogged: false
     },
     component: HomeComponent
-  },
-  {
-    path:'user/login',
-    canActivate: [AccessGuard],
-    data: {
-      shouldLogged: false
-    },
-    component: LoginComponent
-  },
-  {
-    path: 'user/register',
-    canActivate: [AccessGuard],
-    data: {
-      shouldLogged: false
-    },
-    component: RegisterComponent
-  },
-  {
-    path: 'user/myRecipes/:id',
-    canActivate: [AccessGuard],
-    data: {
-      shouldLogged: true
-    },
-    component: MyRecipesComponent
-  },
-  {
-    path: 'user/profile',
-    canActivate: [AccessGuard],
-    data: {
-      shouldLogged: true
-    },
-    component: ProfileComponent
-  },
-  {
-    path: 'user/edit',
-    canActivate: [AccessGuard],
-    data: {
-      shouldLogged: true
-    },
-    component: userEditComponent
-  },
-  {
-    path: 'user/changePassword/:email',
-    canActivate: [AccessGuard],
-    data: {
-      shouldLogged: false
-    },
-    component: ChangePasswordComponent
-  },
-  {
-    path: 'recipe/add',
-    canActivate: [AccessGuard],
-    data: {
-      shouldLogged: true
-    },
-    component: AddComponent
-  },
-  {
-    path: 'recipe/details/:id',
-    canActivate: [AccessGuard],
-    data: {
-      shouldLogged: true
-    },
-    component: DetailsComponent
-  },
-  {
-    path: 'recipe/edit/:id',
-    canActivate: [AccessGuard],
-    data: {
-      shouldLogged: true
-    },
-    component: EditComponent
   }
 ];
 

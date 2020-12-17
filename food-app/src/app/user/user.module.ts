@@ -10,6 +10,7 @@ import { MyRecipesComponent } from './my-recipes/my-recipes.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EditComponent } from './edit/edit.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { UserRoutingModule } from './user-routing.module';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     CommonModule,
     FormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    UserRoutingModule
   ],
   providers: [
     UsersServiceService

@@ -19,7 +19,7 @@ export class MyRecipesComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(({id}) => this.userId = id);
-    this.recipeService.getRecipesByUserId(this.userId).pipe(tap(console.log)).subscribe(
+    this.recipeService.getRecipesByUserId(this.userId).subscribe(
       recipes => this.recipes = recipes,
       err => console.log(err)
     );
