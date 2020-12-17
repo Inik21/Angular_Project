@@ -1,10 +1,15 @@
-export interface IRecipeData {
+export interface IRecipe 	{
+    image?: string;
+    created: Date;
+    cookTime: number;
+    recipe: string;
+    description: string;
+    type: string;
+    ownerId: string;
     title: string;
     products: string;
-    recipe: string;
     prepTime: number;
-    cookTime: number;
-    type: string;
-    description: string;
-    image: string;
+    ___class: string;
+    updated: Date;
+    objectId: string;
 }

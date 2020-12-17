@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { IRecipe } from 'src/app/interfaces/recipe';
 import { RecipeService } from '../recipe.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { RecipeService } from '../recipe.service';
 })
 export class DetailsComponent implements OnInit {
 
-  recipe;
+  recipe: IRecipe | null = null;
 
   recipeId;
 
