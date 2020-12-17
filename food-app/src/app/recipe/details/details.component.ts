@@ -11,7 +11,7 @@ export class DetailsComponent implements OnInit {
 
   recipe;
 
-  recipeId
+  recipeId;
 
   constructor(public recipeService: RecipeService, public route: ActivatedRoute) { }
 

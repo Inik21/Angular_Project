@@ -5,22 +5,25 @@ import { FormsModule } from '@angular/forms';
 import { RecipeService } from './recipe.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DetailsComponent } from './details/details.component';
+import { EditComponent } from './edit/edit.component';
 
 
 
 @NgModule({
-  declarations: [AddComponent, DetailsComponent],
+  declarations: [AddComponent, DetailsComponent, EditComponent],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     RecipeService,
-    HttpClientModule
+    
   ],
   exports: [
     AddComponent,
-    DetailsComponent
+    DetailsComponent,
+    EditComponent
   ]
 })
 export class RecipeModule { }

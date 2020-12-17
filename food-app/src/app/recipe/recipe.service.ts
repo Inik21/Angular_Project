@@ -16,6 +16,10 @@ export class RecipeService {
 
   constructor(public http: HttpClient, public userService: UsersServiceService) { }
 
+  editRecipe(data, id): Observable<any> {
+    return this.http.put(`${this.apiUrl}/data/Recipes/${id}`,data,{ headers: new HttpHeaders({ 'user-token': `${this.userService.userToken}` }) })
+  }
+
   getRecipesByUserId(id): Observable<any> {
     return this.http.get(`${this.apiUrl}/data/Recipes?where=ownerId%20%3D%20'${id}'`, { headers: new HttpHeaders({ 'user-token': `${this.userService.userToken}` }) });
   }

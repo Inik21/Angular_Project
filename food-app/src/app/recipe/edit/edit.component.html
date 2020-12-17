@@ -1,8 +1,10 @@
-<form #f="ngForm" (ngSubmit)="addRecipeHandler(f.value)">
+<p>edit works!</p>
+<form #f="ngForm" (ngSubmit)="editRecipeHandler(f.value)">
     <div class="row justify-content-center">
         <div class="col-6">
             <label for="Title" class="form-label">Title</label>
-            <input #title="ngModel" type="text" name="title" class="form-control" id="Title" ngModel required
+            
+            <input #title="ngModel" type="text" name="title" class="form-control" id="Title" [ngModel]="currentRecipe.title" required
                 minlength="4">
             <div *ngIf="title.touched && title.errors?.required" class="text-danger">
                 Title is required
@@ -12,19 +14,19 @@
             </div>
             <div class="mb-3">
                 <label for="Description" class="form-label">Description</label>
-                <textarea #description="ngModel" name="description" class="form-control" id="Description" ngModel required></textarea>
+                <textarea #description="ngModel" name="description" class="form-control" id="Description" [ngModel]="currentRecipe.description" required></textarea>
                 <div *ngIf="description.touched && description.errors?.required" class="text-danger">
                     Description is required!
                 </div>
             </div>
             <label for="Products" class="form-label">Products</label>
-            <input #products="ngModel" type="text" name="products" class="form-control" id="Products" ngModel required>
+            <input #products="ngModel"  type="text" name="products" class="form-control" id="Products" [ngModel]="currentRecipe.products" required>
             <div *ngIf="products.touched && products.errors?.required" class="text-danger">
                 There has to be at least one product!
             </div>
             <div class="mb-3">
                 <label for="Recipe" class="form-label">Recipe</label>
-                <textarea #recipe="ngModel" name="recipe" class="form-control" id="Recipe" ngModel required></textarea>
+                <textarea #recipe="ngModel" name="recipe" class="form-control" id="Recipe" [ngModel]="currentRecipe.recipe" required></textarea>
                 <div *ngIf="recipe.touched && recipe.errors?.required" class="text-danger">
                     Recipe is required!
                 </div>
@@ -33,7 +35,7 @@
                 <div class="mb-3 col-4">
                     <label for="PrepTime" class="form-label">Preparation time</label>
                     <input #prepTime="ngModel" placeholder="Time in minutes" type="number" name="prepTime" class="form-control" id="PrepTime"
-                        ngModel required>
+                        [ngModel]="currentRecipe.prepTime" required>
                     <div *ngIf="prepTime.touched && prepTime.errors?.required" class="text-danger">
                         You have to put the time!
                     </div>
@@ -41,13 +43,13 @@
                 <div class="mb-3 col-4">
                     <label for="CookTime" class="form-label">Cooking time</label>
                     <input #cookTime="ngModel" placeholder="Time in minutes" type="number" name="cookTime" class="form-control" id="CookTime"
-                        ngModel required>
+                        [ngModel]="currentRecipe.cookTime" required>
                     <div *ngIf="cookTime.touched && cookTime.errors?.required" class="text-danger">
                         You have to put the time!
                     </div>
                 </div>
                 <div class="mb-3 col-4">
-                    <select #typeInput class="form-select" name="type" ngModel>
+                    <select #typeInput class="form-select" name="type" [ngModel]="currentRecipe.type">
                         <option selected>Select type</option>
                         <option value="Breakfast">Breakfast</option>
                         <option value="Lunch">Lunch</option>
@@ -60,11 +62,11 @@
             </div>
             <div class="mb-3">
                 <label for="Image" class="form-label">Image url</label>
-                <input type="text" class="form-control" id="Image" aria-describedby="image" ngModel>
+                <input type="text" name="image" class="form-control" id="Image" aria-describedby="image" [ngModel]="currentRecipe.image">
                 <div id="image" class="form-text">Image is not required</div>
               </div>
             <div class="row justify-content-center">
-                <button [disabled]="!f.valid" class="btn btn-dark mx-auto">Add Recipe</button>
+                <button [disabled]="!f.valid" class="btn btn-dark mx-auto">Edit Recipe</button>
             </div>
         </div>
     </div>
