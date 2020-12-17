@@ -26,7 +26,7 @@ export class ProfileComponent implements OnInit {
   }
 
   editHandler() {
-    // this.router.navigate
+    this.router.navigate(['/user/edit'])
   }
 
 }

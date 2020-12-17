@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { RouterModule } from '@angular/router';
 import { MyRecipesComponent } from './my-recipes/my-recipes.component';
 import { ProfileComponent } from './profile/profile.component';
+import { EditComponent } from './edit/edit.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ProfileComponent } from './profile/profile.component';
     LoginComponent,
     RegisterComponent,
     MyRecipesComponent,
-    ProfileComponent
+    ProfileComponent,
+    EditComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +32,8 @@ import { ProfileComponent } from './profile/profile.component';
     LoginComponent,
     RegisterComponent,
     MyRecipesComponent,
-    ProfileComponent
+    ProfileComponent,
+    EditComponent
   ]
 })
 export class UserModule { }

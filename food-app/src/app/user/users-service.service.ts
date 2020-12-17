@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -19,6 +19,16 @@ export class UsersServiceService {
   apiUrl = environment.apiURL;
 
   constructor(private http: HttpClient) { }
+
+  editUser(data: any) {
+    return this.http.put(`${this.apiUrl}/data/Users/${this.user.objectId}`,data,{ headers: new HttpHeaders({ 'user-token': `${this.userToken}` }) }).pipe(
+      tap((user) => {
+        this.user.firstName = user["firstName"];
+        this.user.lastName = user["lastName"];
+        this.user.email = user["email"];
+      })
+    );
+  }
 
   login(data:ILoginData): Observable<any> {
     return this.http.post(this.apiUrl + '/users/login', data).pipe(

@@ -1,0 +1,45 @@
+<form #f="ngForm" (ngSubmit)="editUserHandler(f.value)">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <div class="row">
+                <div class="mb-3 col-6">
+                    <label for="FirstName" class="form-label">First Name</label>
+                    <input #firstName="ngModel" type="text" name="firstName" class="form-control" id="FirstName" [ngModel]="user.firstName"
+                        required minlength="4">
+                    <div *ngIf="firstName.touched && firstName.errors?.required" class="text-danger">
+                        First Name is required!
+                    </div>
+                    <div *ngIf="firstName.touched && firstName.errors?.minlength" class="text-danger">
+                        First Name must be at least 4 characters long!
+                    </div>
+                </div>
+                <div class="mb-3 col-6">
+                    <label for="LastName" class="form-label">Last Name</label>
+                    <input #lastName="ngModel" type="text" name="lastName" class="form-control" id="LastName" [ngModel]="user.lastName"
+                        required minlength="4">
+                    <div *ngIf="lastName.touched && lastName.errors?.required" class="text-danger">
+                        Last Name is required!
+                    </div>
+                    <div *ngIf="lastName.touched && lastName.errors?.minlength" class="text-danger">
+                        Last Name must be at least 4 characters long!
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="Email" class="form-label">Email address</label>
+                <input #emailInput="ngModel" type="email" name="email" class="form-control" id="Email"
+                    aria-describedby="emailHelp" [ngModel]="user.email" required email>
+                <div *ngIf="emailInput.touched && emailInput.errors?.required" class="text-danger">
+                    Email is required!
+                </div>
+                <div *ngIf="emailInput.touched && emailInput.errors?.email" class="text-danger">
+                    Email is invalid!
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <button [disabled]="!f.valid" class="btn btn-dark mx-auto">Edit profile</button>
+            </div>
+        </div>
+    </div>
+
+</form>
