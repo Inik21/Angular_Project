@@ -10,6 +10,8 @@ import { UsersServiceService } from '../users-service.service';
 })
 export class LoginComponent implements OnInit {
 
+  catchedError: string = '';
+
   constructor(public userService: UsersServiceService, public router: Router) { }
 
   ngOnInit(): void {
@@ -18,7 +20,7 @@ export class LoginComponent implements OnInit {
   loginHandler(data: ILoginData) {
     this.userService.login(data).subscribe(
       (user) => { this.router.navigate(['']) },
-      err => { console.log(err) }
+      err => { this.catchedError = err.error.message }
     )
   }
 

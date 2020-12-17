@@ -10,17 +10,18 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
+  catchedError: string = '';
+
   constructor(public userService: UsersServiceService, public router: Router) { }
 
   ngOnInit(): void {
   }
 
-
   registerHandler(data: IRegisterData) {
 
     this.userService.register(data).subscribe(
       () => { this.router.navigate(['user/login']) },
-      err => { console.log(err) }
+      err => {this.catchedError = err.error.message}
     );
   }
 }

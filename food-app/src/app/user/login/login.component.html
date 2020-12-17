@@ -19,13 +19,14 @@
             <div class="mb-3">
                 <label for="Password" class="form-label">Password</label>
                 <input #passwordInput="ngModel" type="password" name="password" class="form-control" id="Password" ngModel required>
-                <div *ngIf="passwordInput.touched && passwordInput.errors?.required" class="text-danger">
-                    Password is required!
-                </div>
+                
             </div>
             <div class="row justify-content-center">
                 <button [disabled]="!f.valid" class="btn btn-dark mx-auto">Login</button>
             </div>
+            <div *ngIf="catchedError" class="text-danger">
+                    {{catchedError}}!
+                </div>
         </div>
 
     </div>
