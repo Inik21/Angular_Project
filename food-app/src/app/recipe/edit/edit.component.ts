@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { IRecipe } from 'src/app/interfaces/recipe';
 import { IRecipeData } from 'src/app/interfaces/recipeData';
 import { RecipeService } from '../recipe.service';
 
@@ -10,9 +11,9 @@ import { RecipeService } from '../recipe.service';
 })
 export class EditComponent implements OnInit {
 
-  currentRecipe;
+  currentRecipe: IRecipe | null = null;
 
-  recipeId;
+  recipeId: string;
 
   constructor(public recipeService: RecipeService, private route: ActivatedRoute, private router: Router) { }
 

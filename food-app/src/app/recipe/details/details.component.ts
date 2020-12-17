@@ -12,7 +12,7 @@ export class DetailsComponent implements OnInit {
 
   recipe: IRecipe | null = null;
 
-  recipeId;
+  recipeId: string;
 
   constructor(public recipeService: RecipeService, public route: ActivatedRoute) { }
 

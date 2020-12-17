@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { IUser } from 'src/app/interfaces/user';
 import { UsersServiceService } from '../users-service.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { UsersServiceService } from '../users-service.service';
 })
 export class EditComponent implements OnInit {
 
-  get user() {
+  get user(): IUser {
     return this.usersService.user;
   }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { IUser } from 'src/app/interfaces/user';
 import { RecipeService } from 'src/app/recipe/recipe.service';
 import { UsersServiceService } from '../users-service.service';
 
@@ -10,11 +11,11 @@ import { UsersServiceService } from '../users-service.service';
 })
 export class ProfileComponent implements OnInit {
 
-  get user() {
+  get user(): IUser {
     return this.usersService.user;
   }
 
-  recipesCount
+  recipesCount: number;
 
   constructor(public usersService: UsersServiceService, public recipeService: RecipeService, private router:Router) { }
 

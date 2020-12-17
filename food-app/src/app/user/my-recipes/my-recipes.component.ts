@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
+import { IRecipe } from 'src/app/interfaces/recipe';
 import { RecipeService } from 'src/app/recipe/recipe.service';
 import { UsersServiceService } from '../users-service.service';
 
@@ -11,9 +12,9 @@ import { UsersServiceService } from '../users-service.service';
 })
 export class MyRecipesComponent implements OnInit {
 
-  recipes = null;
+  recipes: IRecipe[] | null = null;
 
-  userId;
+  userId: string;
 
   constructor(public recipeService: RecipeService, private route: ActivatedRoute, private router: Router, public usersService: UsersServiceService) { }
 

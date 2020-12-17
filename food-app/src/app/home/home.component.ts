@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IRecipe } from '../interfaces/recipe';
 import { RecipeService } from '../recipe/recipe.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { RecipeService } from '../recipe/recipe.service';
 })
 export class HomeComponent implements OnInit {
 
-  recipes = null;
+  recipes: IRecipe[] | null;
 
   updated;
   

@@ -9,9 +9,7 @@ import { UsersServiceService } from '../users-service.service';
 })
 export class ChangePasswordComponent implements OnInit {
 
-  user;
-
-  userEmail;
+  userEmail: string;
 
   constructor(public usersService: UsersServiceService, private route: ActivatedRoute, private router: Router) { }
 
