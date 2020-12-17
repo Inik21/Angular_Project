@@ -1,36 +1,47 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col col-8">
-            <div *ngFor="let recipe of recipes" class="row justify-content-center">
-                <div  class="card mb-3" style="max-width: 700px;">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img [src]="recipe.image" class="img-fluid" alt="You haven't put a picture">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">{{recipe.title}}</h5>
-                                <p class="card-text">{{recipe.description.length > 100 ? recipe.description.substring(0,
-                                    100) +
-                                    '...': recipe.description}}</p>
-                                <div class="row">
-                                    <button routerLink="/recipe/details/{{recipe.objectId}}" type="button"
-                                        class="btn btn-outline-info col-3">See recipe</button>
-                                    <button routerLink="/recipe/edit/{{recipe.objectId}}" type="button"
-                                        class="btn btn-outline-warning col-3">Edit</button>
-                                    <button (click)="deleteRecipeHandler(recipe.objectId)" type="button"
-                                        class="btn btn-outline-danger col-3">Delete</button>
-                                </div>
+            <div *ngIf="recipes">
+                <div *ngFor="let recipe of recipes" class="row justify-content-center">
+                    <div class="card mb-3" style="max-width: 700px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img [src]="recipe.image" class="img-fluid" alt="You haven't put a picture">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{recipe.title}}</h5>
+                                    <p class="card-text">{{recipe.description.length > 100 ?
+                                        recipe.description.substring(0,
+                                        100) +
+                                        '...': recipe.description}}</p>
+                                    <div class="row">
+                                        <button routerLink="/recipe/details/{{recipe.objectId}}" type="button"
+                                            class="btn btn-outline-info col-3">See recipe</button>
+                                        <button routerLink="/recipe/edit/{{recipe.objectId}}" type="button"
+                                            class="btn btn-outline-warning col-3">Edit</button>
+                                        <button (click)="deleteRecipeHandler(recipe.objectId)" type="button"
+                                            class="btn btn-outline-danger col-3">Delete</button>
+                                    </div>
 
-                                <p class="card-text"><small class="text-muted">Created: {{recipe.created |
-                                        date:'short'}}</small>
-                                </p>
+                                    <p class="card-text"><small class="text-muted">Created: {{recipe.created |
+                                            date:'short'}}</small>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
+            <div *ngIf="recipes.length === 0">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Opsss! You don't have any recipes!</h5>
+                        <p class="card-text">What are you waiting for. Create your first recipe.</p>
+                        <a routerLink="/recipe/add" class="btn btn-info">Add recipe</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

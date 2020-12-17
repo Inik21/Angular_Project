@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { tap } from 'rxjs/operators';
 import { RecipeService } from 'src/app/recipe/recipe.service';
 import { UsersServiceService } from '../users-service.service';
 
@@ -10,7 +11,7 @@ import { UsersServiceService } from '../users-service.service';
 })
 export class MyRecipesComponent implements OnInit {
 
-  recipes;
+  recipes = null;
 
   userId;
 
@@ -18,7 +19,7 @@ export class MyRecipesComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(({id}) => this.userId = id);
-    this.recipeService.getRecipesByUserId(this.userId).subscribe(
+    this.recipeService.getRecipesByUserId(this.userId).pipe(tap(console.log)).subscribe(
       recipes => this.recipes = recipes,
       err => console.log(err)
     );

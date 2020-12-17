@@ -10,12 +10,6 @@
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" routerLink="home">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="home">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="home">Pricing</a>
-                </li>
             </ul>
         </div>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -27,19 +21,30 @@
                     <a routerLink="/user/register" class="nav-link">Register</a>
                 </li>
                 <li *ngIf="user" class="nav-item ">
-                    <a class="nav-link">Hello, {{user.firstName}} {{user.lastName}}</a>
+                    
                 </li>
-                <li *ngIf="user" class="nav-item ">
-                    <a class="nav-link" routerLink="/user/profile">My profile</a>
-                </li>
-                <li *ngIf="user" class="nav-item ">
-                    <a class="nav-link" routerLink="/recipe/add">Add recipe</a>
-                </li>
-                <li *ngIf="user" class="nav-item ">
-                    <a class="nav-link" routerLink="/user/myRecipes/{{user.objectId}}">My recipes</a>
-                </li>
-                <li *ngIf="user" class="nav-item ">
-                    <a (click)="logoutHandler()" class="nav-link">Logout</a>
+                <li *ngIf="user" class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Hello, {{user.firstName}} {{user.lastName}}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li class="dropdown-item">
+                            <a class="nav-link text-dark" routerLink="/user/profile">My profile</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a class="nav-link text-dark" routerLink="/recipe/add">Add recipe</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a class="nav-link text-dark" routerLink="/user/myRecipes/{{user.objectId}}">My recipes</a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li class="dropdown-item">
+                            <a (click)="logoutHandler()" class="nav-link text-dark">Logout</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>
